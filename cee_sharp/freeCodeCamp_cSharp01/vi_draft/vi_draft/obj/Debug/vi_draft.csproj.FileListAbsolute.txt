@@ -1,0 +1,7 @@
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\bin\Debug\vi_draft.exe.config
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\bin\Debug\vi_draft.exe
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\bin\Debug\vi_draft.pdb
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\obj\Debug\vi_draft.csprojAssemblyReference.cache
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\obj\Debug\vi_draft.csproj.CoreCompileInputs.cache
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\obj\Debug\vi_draft.exe
+C:\SSBSSD\local_coding\gitfolder\rand_various\cee_sharp\freeCodeCamp_cSharp01\vi_draft\vi_draft\obj\Debug\vi_draft.pdb

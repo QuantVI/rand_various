@@ -1,0 +1,1899 @@
+
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program_01 /* class name is the name of the file*/
+    {
+        static void Main_01(string[] args) /* this is considered method - thus a Class method. */
+        {
+            /*
+            Console.WriteLine("Hello World");
+ 
+            Console.WriteLine("       /|");
+            Console.WriteLine("      / |");
+            Console.WriteLine("     /  |");
+            Console.WriteLine("    /   |");
+            Console.WriteLine("   /    |");
+            Console.WriteLine("  /     |");
+            Console.WriteLine(" /      |");
+            Console.WriteLine("/       |");
+            */
+ 
+            string characterName = "John";
+ 
+            int characterAge;
+            characterAge = 35;
+ 
+            Console.WriteLine("There once was a man name John.");
+            Console.WriteLine(characterName + " was his first name.");
+            Console.WriteLine("He was " +characterAge + " years old.");
+            Console.WriteLine("He really liked the name " + characterName + ",");
+            Console.WriteLine("but didn't like being " + characterAge + ".");
+ 
+            Console.ReadLine();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            string phrase = "Holds more than one character";
+            char grade = 'f';
+            int age = 23;
+            float pi_ = 3.14159F;
+            double tau = 6.283F;
+            decimal gpa = 3.67M;
+            bool isFun = true;
+ 
+            Console.WriteLine(pi_);
+            Console.WriteLine(tau);
+            Console.WriteLine(gpa);
+ 
+            Console.ReadLine();
+        }
+   }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            string phrase = "Holds more than one character";
+            string sentence = "A second sentence to use.";
+ 
+            Console.WriteLine();
+            Console.WriteLine(phrase);
+            Console.WriteLine("A string with a\n newline");
+            Console.WriteLine("A string with a\n newline");
+            Console.WriteLine("A string that's \n two line long, with an escaped \" ");
+ 
+            Console.WriteLine();
+            Console.WriteLine(phrase + " " + sentence);
+ 
+            Console.WriteLine(phrase.Length); // we're using a method on the string
+            Console.WriteLine(phrase.ToUpper()); // another string method
+            Console.WriteLine(phrase.Contains("Academy"));
+            Console.WriteLine(phrase[0]); // string index
+            Console.WriteLine(phrase[4]);
+            Console.WriteLine(phrase.IndexOf("than"));
+            Console.WriteLine(phrase.IndexOf("z"));
+            Console.WriteLine(phrase.Substring(4));
+            Console.WriteLine(sentence.Substring(9,5));
+ 
+            Console.WriteLine();
+            Console.WriteLine();
+ 
+            Console.ReadLine();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            string phrase = "Holds more than one character";
+            string sentence = "A second sentence to use.";
+            int num = 9;
+ 
+            Console.WriteLine();
+ 
+            Console.WriteLine(5 + " number");
+            Console.WriteLine(5+8 + " addition");
+            Console.WriteLine(5-6 + " subtraction");
+            Console.WriteLine(5*7 + " multiplication");
+            Console.WriteLine(5/2 + " integer division");
+            Console.WriteLine(5 % 3 + " modulus");
+ 
+            Console.WriteLine(4 + 2 * 3 + " order of operations");
+            Console.WriteLine((4+2) + 3 + " change operations order");
+            Console.WriteLine(5 + 8.1 + "int plus float");
+            Console.WriteLine(5/2.0 + "decimal division");
+            Console.WriteLine(num);
+            num++;
+            Console.WriteLine(num);
+            num--;
+            num--;
+            Console.WriteLine(num);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+ 
+            Console.WriteLine();
+ 
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            string phrase = "Holds more than one character";
+ 
+            Console.WriteLine( Math.Abs(-123) );
+            Console.WriteLine(Math.Pow(3,2) );
+            Console.WriteLine(Math.Pow(3.8, 2));
+            Console.WriteLine(Math.Sqrt(49));
+            Console.WriteLine(Math.Max(4, 5));
+            Console.WriteLine(Math.Round(4.3));
+            Console.WriteLine(Math.Round(4.6));
+ 
+            Console.WriteLine();
+ 
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            string phrase = "Holds more than one character";
+            string p1 = "Enter your name: ";
+            string p2 = "Hello ";
+            string p3 = "Enter your age: ";
+            string p4 = " you are ";
+ 
+            Console.Write(p1);
+            string name = Console.ReadLine();
+            Console.Write(p3);
+            string age = Console.ReadLine();
+ 
+            Console.WriteLine(p2 + name + p4 + age);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            string phrase = "Holds more than one character";
+            Console.WriteLine("43"+"56");
+ 
+            int num = Convert.ToInt32("45");
+            int numStr = Convert.ToInt32("51");
+ 
+            Console.WriteLine(num + 6);
+            Console.WriteLine(numStr + 7);
+ 
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            string n1,n2;
+            string[] strArray = {"Give me two numbers to add.",
+                                 "First number : ",
+                                 "Second number: ",
+                                 "Their sum is : "};
+            Console.WriteLine();
+            Console.WriteLine(strArray[0]);
+            Console.Write(strArray[1]);
+            n1 = Console.ReadLine();
+            Console.Write(strArray[2]);
+            n2 = Console.ReadLine();
+ 
+            int in1 = Convert.ToInt32(n1);
+            int in2 = Convert.ToInt32(n2);
+ 
+            Console.Write(strArray[3] + Convert.ToString(in1+in2));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+// madlib
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            string color, pluralNoun, celebrity;
+ 
+            string s1 = "Roses are ";
+            string s2 = " are blue";
+            string s3 = "I love ";
+ 
+            Console.WriteLine();
+ 
+            Console.Write("Enter a color: ");
+            color = Console.ReadLine();
+ 
+            Console.Write("Enter a plural noun: ");
+            pluralNoun = Console.ReadLine();
+ 
+           Console.Write("Enter a celebrity: ");
+            celebrity = Console.ReadLine();
+ 
+            Console.WriteLine(s1 + color);
+            Console.WriteLine(pluralNoun + s2);
+            Console.WriteLine(s3 + celebrity);
+ 
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+ 
+            // Arrays
+            int[] luckyNumbers = {3, 5, 7, 11, 31, 53};
+                                //0  1  2  3   4   5
+ 
+            string[] friends = new string[3];
+            friends[0] = "Ace";
+            friends[1] = "Luffy";
+            friends[2] = "Zoro";
+ 
+            Console.WriteLine(luckyNumbers[2]);
+            luckyNumbers[0] = 71;
+            Console.WriteLine( luckyNumbers[0]);
+ 
+            Console.WriteLine("[ {0} ]", string.Join(", ", friends));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            // Methods
+            // Only code in the main method is run automatically when the file is run.
+            // We need to "call" other methods within Main, for them ro be run at code execution.
+ 
+            SayHi();
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+        // Main is its own method. We create a new one below
+ 
+        // static - return type - method name
+        static void SayHi()
+        {
+            // any code in here is part of the SayHi method
+            Console.WriteLine("Hello User");
+        }
+ 
+ 
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            // Methods  :   Only code in the main method is run automatically when the file is run.
+                    //      We need to "call" other methods within Main, for them ro be run at code execution.
+            SayHi("Vince");
+            SayHi("John");
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+        // Main is its own method. We create a new one below
+        // static - return type - method name
+        static void SayHi(string name) // SayHi takes one argument "name" which is a string.
+        { // any code in here is part of the SayHi method
+            Console.WriteLine("Hello " + name);
+        }
+ 
+ 
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+            // Methods  :   Only code in the main method is run automatically when the file is run.
+                    //      We need to "call" other methods within Main, for them ro be run at code execution.
+            SayHi("Credit",987);
+            SayHi("Suisse",654);
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+        // Main is its own method. We create a new one below
+        // static - return type - method name
+        static void SayHi(string name, int age) // SayHi takes two arguments: "name" which is a string, and "age" which is an int
+        { // any code in here is part of the SayHi method
+            Console.WriteLine("Hello " + name + ". You are " + age + ".");
+        }
+        // You can generally use the word "Methods" anf "Functions" interchangeably.
+ 
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Return Statements:   In addition to passing information into a method,
+    // methods can actually pass information back to the callers.
+ 
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {
+            Console.WriteLine();
+ 
+            double cubedNumber = Cube(5);
+ 
+            Console.Write(cubedNumber);
+ 
+ 
+           
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+        // Main is its own method. We create a new one below
+        // static - return type - method name
+        static double Cube(int num)
+        { // any code in here is part of this method
+            double result = Math.Pow(num, 3);
+            return result;
+        }
+       
+ 
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// If Statements:
+    //
+/*
+*  I wake up
+*  If I'm hungry
+*      I eat breakfast
+*
+*  I look at my phone
+*  if it's about to die
+*      I charge it
+*
+*  I leave my house
+*  if it is cloudy
+*      I bring an umbrella
+*  otherwise
+*      I bring sunglasses
+*/
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            bool isMale = true;
+ 
+            if (isMale) // the condition needs to go within te parenthesis and evaluate to true or false
+            {
+                Console.WriteLine("You are male.");
+            }
+            else
+            {
+                Console.WriteLine("You are not male.");
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// If Statements:
+    //
+/*
+*  I wake up
+*  If I'm hungry
+*      I eat breakfast
+*
+*  I look at my phone
+*  if it's about to die
+*      I charge it
+*
+*  I leave my house
+*  if it is cloudy
+*      I bring an umbrella
+*  otherwise
+*      I bring sunglasses
+*/
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            //bool isMale = true;
+            //bool isTall = true;
+            Random rnd = new Random();
+            bool isMale = Convert.ToBoolean(rnd.Next(0, 2));
+            bool isTall = Convert.ToBoolean(rnd.Next(0, 2));
+ 
+            if (isMale && isTall) // the condition needs to go within te parenthesis and evaluate to true or false
+            {
+                Console.WriteLine("You are a tall male.");
+            }
+            else if (isMale && !isTall)
+            {
+                Console.WriteLine("You are a male and not tall.");
+            }
+            else if (!isMale && isTall)
+            {
+                Console.WriteLine("You are not male, but you are tall.");
+            }
+            else
+            {
+                Console.WriteLine("You are not male and not tall.");
+            }
+ 
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// More If Statements:
+    // Comparisons
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Console.WriteLine(GetMax(71,23));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+        static int GetMax(int num1, int num2)
+        { // return the larger number to the caller
+            int result;
+ 
+            if (num1 > num2) { result = num1; }
+            else { result = num2; }
+ 
+            return result;
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// More If Statements:
+    // Comparisons
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Console.WriteLine(GetMax(7,17,23));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+        static int GetMax(int num1, int num2, int num3)
+        { // return the larger number to the caller
+            int result;
+ 
+            if (num1 >= num2 && num1 >= num3) { result = num1; }
+            else if (num2 >= num1 && num2 >= num3) { result = num2; }
+            else { result = num3; }
+ 
+            return result;
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Building a Better Calculator
+    // Four function. Extended to include exponent, and modulus
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            string[] prompts = {"Enter a number: ", "Enter Operator: "};
+ 
+            double num1, num2;
+            string op;
+ 
+            Console.Write(prompts[0]);
+            num1 = Convert.ToDouble(Console.ReadLine());
+ 
+            Console.Write(prompts[1]);
+            op = Console.ReadLine();
+ 
+            Console.Write(prompts[0]);
+            num2 = Convert.ToDouble(Console.ReadLine());
+ 
+            double[] numInputs = {num1, num2};
+ 
+            string[] opers = {"+", "-", "*", "/", "**", "%","!"};
+            string msgOutput;
+ 
+            if (opers.Contains(op))
+            {
+                msgOutput = string.Format("{0} {1} {2} = {3}", num1, op, num2, PerformOperation(numInputs, op));
+            }
+            else
+            {
+                msgOutput = ("Inavlid Operation: " + op);
+            }
+           
+ 
+            Console.WriteLine(msgOutput);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+        static double PerformOperation(double[] nums, string oper)
+        {
+            double ret = 0;
+            switch (oper)
+            {
+                case "+" : ret = nums[0] + nums[1]; break;
+                case "-" : ret = nums[0] - nums[1]; break;
+                case "*" : ret = nums[0] * nums[1]; break;
+                case "/" : ret = nums[0] / nums[1]; break;
+                case "^" : ret = Math.Pow(nums[0],nums[1]); break;
+                case "**": ret = Math.Pow(nums[0], nums[1]); break;
+                case "%" : ret = nums[0] % nums[1]; break;
+                case "!":
+                    double beGin = nums[0];
+                    ret = 1;
+                    while (beGin != 1)
+                    {
+                        ret = ret * beGin;
+                        beGin = beGin - 1;
+                    }
+                    break;
+            }
+ 
+            return ret;
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Switch Statements
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Console.Write(GetDay(4));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+        static string GetDay(int dayNum)
+        {
+            string dayName;
+            switch (dayNum)
+            {
+                case 1:
+                    dayName = "Sunday";
+                    break;
+                case 2:
+                    dayName = "Monday";
+                    break;
+                case 3:
+                    dayName = "Tuesday";
+                    break;
+                case 4:
+                    dayName = "Wednesday";
+                    break;
+                case 5:
+                    dayName = "Thursday";
+                    break;
+                case 6:
+                    dayName = "Friday";
+                    break;
+                case 7:
+                    dayName = "Saturday";
+                    break;
+                default:
+                    dayName = "Invalid Day Number";
+                    break;
+            }
+ 
+            return dayName;
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// While Loops
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            int index = 1;
+            while (index <= 5)
+            {
+                Console.WriteLine(index);
+                index++;
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Building a guessing Game
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            string secretWord = "draft";
+            string guess = "";
+ 
+            string[] hints = {"Starts with a '{0}'.","Ends with a '{0}'.", "Contains a '{0}'."};
+ 
+ 
+            int secretLength = secretWord.Length;
+            int givenHints = 0;
+ 
+ 
+            while (guess != secretWord && givenHints <= secretLength ) // keep looking if guess is not the same a secretWord
+            {
+                Console.Write("Enter a guess: ");
+                guess = Console.ReadLine();
+                if (guess != secretWord)
+                {
+                    if (givenHints < secretLength)
+                        switch (givenHints)
+                        {
+                            case 0:
+                                Console.WriteLine(string.Format(hints[givenHints], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                            case 1:
+                                Console.WriteLine(string.Format(hints[givenHints], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                            default:
+                                Console.WriteLine(string.Format(hints[2], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                        }
+                    else
+                    {
+                        Console.Write("--------");
+                        break; // out of the entire While Loop
+                    }
+                }
+            }
+ 
+            if (givenHints == secretLength)
+            {
+                Console.WriteLine(string.Format("You were given too many hints: {0}",givenHints));
+            }
+ 
+            if (guess == secretWord)
+            {
+                Console.Write("You guessed correctly!");
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Building a guessing Game
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            string secretWord = "draft";
+            string guess = "";
+ 
+            string[] hints = {"Starts with a '{0}'.","Ends with a '{0}'.", "Contains a '{0}'."};
+ 
+ 
+            int secretLength = secretWord.Length;
+            int givenHints = 0;
+ 
+ 
+            while (guess != secretWord && givenHints <= secretLength ) // keep looking if guess is not the same a secretWord
+            {
+                Console.Write("Enter a guess: ");
+                guess = Console.ReadLine();
+                if (guess != secretWord)
+                {
+                    if (givenHints < secretLength)
+                        switch (givenHints)
+                        {
+                            case 0:
+                                Console.WriteLine(string.Format(hints[givenHints], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                            case 1:
+                                Console.WriteLine(string.Format(hints[givenHints], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                            default:
+                                Console.WriteLine(string.Format(hints[2], secretWord[givenHints]));
+                                givenHints++;
+                                break;
+                        }
+                    else
+                    {
+                        Console.Write("--------");
+                        break; // out of the entire While Loop
+                    }
+                }
+            }
+ 
+            if (givenHints == secretLength)
+            {
+                Console.WriteLine(string.Format("You were given too many hints: {0}",givenHints));
+            }
+ 
+            if (guess == secretWord)
+            {
+                Console.Write("You guessed correctly!");
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// For Loop
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            int[] luckyNumbers = {4, 8, 15, 16, 23, 42};
+ 
+            int w = 1;
+ 
+            while (w <=5) { Console.WriteLine(w); w++; }
+ 
+            for (int i = 1; i <= 5; i++) { Console.WriteLine(i); }
+ 
+            for (int j = 1; j < luckyNumbers.Length; j++) { Console.WriteLine(luckyNumbers[j]); }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Exponent Function
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Console.WriteLine(GetPow(2,3));
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+        static int GetPow(int baseNum, int powNum)
+        {
+            int result = 1;
+ 
+            for (int i = 1; i <= powNum; i++)
+            {
+                result = result * baseNum;
+            }
+ 
+            return result;
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// 2D Arrays
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            int[,] numberGrid =
+            {
+                {1, 2 },
+                {3, 4 },
+                {5, 6 }
+            };
+            // can also do
+            int[,] myArray = new int[2, 3];
+ 
+            Console.WriteLine(numberGrid[0, 0]);
+            Console.WriteLine(numberGrid[1, 1]);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Comments
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            int[,] numberGrid = { {1, 2 }, {3, 4 }, {5, 6 } };
+            // Can also do
+            int[,] myArray = new int[2, 3];
+ 
+            Console.WriteLine(numberGrid[0, 0]);
+            Console.WriteLine(numberGrid[1, 1]);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+            /*
+             Multi-line comment
+             */
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Exception Handling
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            try
+            {
+                Console.Write("Enter a number: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter another number: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+ 
+                Console.WriteLine(num1 / num2);
+            }
+ 
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception:\t {0}",e.Message);
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Exception Handling
+   
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            try
+            {
+                Console.Write("Enter a number: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter another number: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+ 
+                Console.WriteLine(num1 / num2);
+            }
+ 
+            //catch (Exception e)
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine("Division Exception:\t {0}",e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Format Exception:\t {0}", e.Message);
+            }
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Classes and Objects
+    /* you can't represent everything using built-in datatypes.
+     classes/objects are essentially you making you're own datatypes -
+     such as to model real world entities.
+     */
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            // We have written Book.cs with the Book class. We can now make a Book object, an instance of the Book class
+            Book libro1 = new Book();
+            libro1.title = "The Lion, The Witch and The Wardrobe";
+            libro1.author = "C.S. Lewis";
+            libro1.pages = 255;
+ 
+            Book libro2 = new Book();
+            libro2.title = "Harry Potter";
+            libro2.author = "J.K. Rowling";
+            libro2.pages = 512;
+ 
+            Console.WriteLine(libro1.title);
+            Console.WriteLine(libro2.title);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+/*
+*  Book.cs - for the Book class
+*  Classes and Objects
+*/
+ 
+namespace vi_draft
+{
+    class Book
+    {   // Class Attributes
+        public string title;
+        public string author;
+        public int pages;
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Constructors
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            // calls Book.Book if the .Book method exists.
+            //Book libro1 = new Book("el 1");
+            string libro1title = "The Lion, The Witch and The Wardrobe";
+            string libro1author = "C.S. Lewis";
+            int libro1pages = 255;
+            Book libro1 = new Book(libro1title, libro1author, libro1pages);
+ 
+           
+            string libro2title = "Harry Potter";
+            string libro2author = "J.K. Rowling";
+            int libro2pages = 512;
+            Book libro2 = new Book(libro2title, libro2author, libro2pages);
+ 
+            Console.WriteLine(libro1.title);
+            Console.WriteLine(libro2.title);
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+ 
+//  Book.cs - for the Book class
+//  Constructors
+ 
+namespace vi_draft
+{
+    class Book
+    {   // Class Attributes
+        public string title;
+        public string author;
+        public int pages;
+ 
+        // This is the constructor for this class.
+        // Called when we create an object of this class
+        public Book(string aTitle, string anAuthor, int thePages)
+        {
+            title = aTitle;
+            author = anAuthor;
+            pages = thePages;
+            Console.WriteLine("... Creating Book ... {0}", title);
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Object Methods
+namespace vi_draft
+{
+    class Student
+    {
+        public string name;
+        public string major;
+        public double gpa;
+ 
+        public Student(string aName, string aMajor, double aGpa)
+        {
+            name = aName;
+            major = aMajor;
+            gpa = aGpa;
+        }
+ 
+        public override string ToString()
+        {
+            return String.Format("Name: {0},\tMajor: {1},\tGPA: {2}",name, major, gpa)
+            ;
+        }
+ 
+        // object method
+        public bool HasHonors(double gpaCutoff = 3.5)
+        {
+            return gpa >= gpaCutoff;
+        }
+    }
+}
+
+
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Object Methods
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Student s1 = new Student("Sharpe", "Finance ", 3.57);
+            Student s2 = new Student("Jim", "Business", 2.8);
+            Student s3 = new Student("Pam", "Economics", 3.6);
+ 
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
+            Console.WriteLine(s3);
+ 
+            Console.WriteLine(s1.HasHonors());
+            Console.WriteLine(s2.HasHonors());
+            Console.WriteLine(s3.HasHonors());
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Getters and Setters
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Movie avengers = new Movie("The Avengers", "Joss Whedon","PG-13");
+            Movie shrek = new Movie("Shrek", "Adam Adamson", "PG");
+            Movie cSuisse = new Movie("Credit Suisse", "Switz Erland", "XYZ");
+            // Assume a movie can only be rated G, PG, PG-13, R, NR.
+            // How can we ensure/enforce we only get these ratings?
+            // --> private field rating within the Movie Class.
+            Console.WriteLine(avengers);
+            Console.WriteLine(shrek);
+            Console.WriteLine(cSuisse);
+           
+            Console.WriteLine(shrek.Rating); // We can now access private '.rating' via getter '.Rating'
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Getters and Setters
+    // Assume a movie can only be rated G, PG, PG-13, R, NR.
+    // How can we ensure/enforce we only get these ratings - within the Movie Class?
+ 
+namespace vi_draft
+{
+    class Movie
+    {
+        public string title; // "public" : any other program or code can access this
+        public string director;
+ 
+        // "private" : only code within the Movie class can access rating.
+        private string rating; // by making this private, it is exposed to be set, only at construction.
+        /* Moreover, rating cannot be accessed ("get") directly. Such as with
+         myMovie.rating
+ 
+            Instead, we can only get or set rating by using a Class Method.
+            1. The constructor (which we write)
+            2. Some other method we write
+ 
+            This allows us to check a given value for rating against the values we wish to allow.
+        */
+ 
+        public override string ToString()
+        {
+            string filler = @"    Movie: {0}
+    By: {1}
+    Rated: {2}
+";
+            return String.Format(filler,title,director,rating);
+        }
+ 
+        public Movie(string aTitle, string aDirector, string aRating)
+        {
+            title = aTitle;
+            director = aDirector;
+            Rating = aRating;
+        }
+ 
+        // the getters ans setter allow outside code to acces and modify/set the rating or other private item
+        public string Rating
+        {
+            get => rating; // this does the same thing as the line below
+            // get { return rating; }
+            set
+            {
+                // we can define rules for setting rating, within here
+                string[] validRatings = {"G", "PG", "PG-13", "NC-17", "R", "NR"};
+                rating = validRatings.Contains(value) ? value : "NR";
+            }
+        }
+    }
+}
+
+
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Static Class Attributes
+/* A static attribute is shared by all objects/instances of that class.
+* The static attribute is an attribute contained on the Class itself, instead of
+* on the individual object(s) of the class.
+*/
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Song song2 = new Song("Song 2", "Blur", 124);
+            Song oneforall = new Song("One For All", "Craig Meier", 339);
+            Song blazePart1 = new Song("Outtake弐-04", "Hiroyuki Sawano", 161);
+            Song blazePart2 = new Song("BLAZE [ZERO-TWO Version]", "Hiroyuki Sawano", 222);
+ 
+            foreach (Song s in new object[] {song2, oneforall, blazePart1, blazePart2} )
+            {
+                Console.WriteLine(s);
+            }
+ 
+            Console.WriteLine(Song.songCount);
+            Console.WriteLine(blazePart2.getSongCount());
+ 
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Static Class Attributes
+namespace vi_draft
+{
+    class Song
+    {
+        public string title;
+        public string artist;
+        public int duration;
+ 
+        /*  this staic class attrbute will not be unique per object.
+         Instead, the entire class will have this attribute with whatever the static value is,
+         or changes to. All object will have the same songCount.
+ 
+            We can make static attribute be "fixed" values, like a constant, e.g. 7.
+            We can also make statis class attributes update themselves, and keep track of things
+            such as, the number of objects created from this Class, during that session.
+         */
+        public static int songCount = 0;
+        // invididual objects/instances CANNOT access static Class attributes directly.
+        // If mySong was a Song, then mySong.songCount DOES NOT exist.
+        // Song.songCount does exist.
+ 
+ 
+        public Song(string aTitle, string aArtist, int aDuration)
+        {
+            title = aTitle;
+            artist = aArtist;
+            duration = aDuration;
+ 
+            // update the static Class attribute
+            songCount++;
+        }
+ 
+        public override string ToString()
+        {
+            // since duration is an int, we get a whole number for duration/60
+            int[] minSec = {duration / 60, duration % 60};
+ 
+            return String.Format(@"    ""{0}"" by {1}.
+     Length: {2}:{3:D2}
+", title, artist, minSec[0], minSec[1]);
+        }
+ 
+        public int getSongCount() => songCount;
+    }
+}
+
+
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Static Method and Classes
+/*  The method belongs to the class. This means you don't
+    have to create an object of the class in order to use the method.
+ 
+    A good example of this is calling the Square Root method, from the Math Class.
+    We never make a Math Object. Yet we can use the Math Static Method "sqrt".
+*/
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+            /*  The following
+                    Math myMath = new Math();
+                gives the error
+                    Error CS0712: Cannot create an instance of the static class 'Math' (26, 27)
+            */
+ 
+            Console.WriteLine(Math.Sqrt(144));
+            UsefulTools.SayHi("Tsi Sharpe");
+ 
+            // works, unless we change he class definition of UseTools to include "static"
+            // UsefulTools tooly = new UsefulTools();
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Static Method and Classes
+namespace vi_draft
+{
+    static class UsefulTools
+    {
+        // We can create static methods here.
+        public static void SayHi(string name)
+        {
+            Console.WriteLine("Hello {0}\n",name);
+        }
+    }
+}
+ 
+ 
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// https://www.youtube.com/watch?v=GhQdlIFylQ8
+// Inheritance
+/* We can have one class (Sub Class) inherit all of the functionality of another class (Super Class).
+*
+*/
+namespace vi_draft /* this is the overall project name */
+{
+    class Program /* class name is the name of the file*/
+    {
+        static void Main(string[] args) /* this is considered method - thus a Class method. */
+        {   Console.WriteLine();
+ 
+            Chef chef = new Chef();
+            chef.MakeTurkey();
+            chef.MimicRamsay();
+            chef.MakeSpecialDish();
+ 
+            Console.WriteLine();
+ 
+            ItalianChef talia = new ItalianChef();
+            talia.MakePasta();
+            talia.MimicRamsay();
+            /* Below: returns "The Chef makes Shepherd's Pie." before we override anything
+             *
+             */
+            talia.MakeSpecialDish();
+ 
+            Console.WriteLine();
+            Console.ReadKey();
+ 
+        }
+ 
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Inheritance
+namespace vi_draft
+{
+    class Chef
+    {
+        public void MakeTurkey()
+        {
+            Console.WriteLine("The Chef makes turkey.");
+        }
+ 
+        public void MimicRamsay()
+        {   // Use a Gordon Ramsey quote
+            Console.WriteLine("Et's rotten you edjuyat.");
+        }
+ 
+        public void MakeSalad()
+        {
+            Console.WriteLine("The Chef makes salad.");
+        }
+ 
+        // specifying "virtual" means this method can be overriden in any subclass.
+        public virtual void MakeSpecialDish()
+        {
+            Console.WriteLine("The Chef makes Shepherd's Pie.");
+        }
+    }
+}
+ 
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+// Inheritance
+namespace vi_draft
+{
+    class ItalianChef : Chef // inherits all functionality from the Chef class.
+    // ItalianChef is considered the Sub-class
+    // Chef is considered the Super-class
+ 
+    {
+        public void MakePasta()
+        {
+            Console.WriteLine("The Italian Chef makes pasta.");
+        }
+ 
+        // We override the MakeSpecialDish method, using the override identifier
+        public override void MakeSpecialDish()
+        {
+            Console.WriteLine("The Italian Chef makes chicken alfredo.");
+        }
+ 
+    }
+}
+
+
