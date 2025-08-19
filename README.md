@@ -2,14 +2,15 @@
 
 An outer folder for projects that may be unrelated to one another.
 
-`something like this`
+`{java} something like this`
 
-```c++
+```java
 1
 2
 3
 def(asdf):
   1234
+  return "dog"
 ```
 
 ```python
@@ -18,4 +19,13 @@ def(asdf):
 3
 def(asdf):
   1234
+  return "dog"
+```
+```lisp
+1
+2
+3
+def(asdf):
+  1234
+  return "dog"
 ```
