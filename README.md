@@ -2,14 +2,19 @@
 
 An outer folder for projects that may be unrelated to one another.
 
-`java something like this`
+```
+# Check Quality
+import pandas as pd
+import v2b_check_qual
+import v2c_check_qual
+
+```
 
 
 ```python
-1
-2
-3
-def(asdf):
-  1234
-  return "dog"
+# Check Quality
+import pandas as pd
+import v2b_check_qual
+import v2c_check_qual
+
 ```
