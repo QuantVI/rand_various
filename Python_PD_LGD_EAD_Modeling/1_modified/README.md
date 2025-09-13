@@ -1,4 +1,5 @@
-# Credit Risk Modeling - Project Syllabus
+# Credit Risk Modeling 
+###### - Project Syllabus
 
 | Section                                    | Sub-section                              |
 | ------------------------------------------ | ---------------------------------------- |
