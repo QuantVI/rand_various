@@ -1,6 +1,14 @@
 # Credit Risk Modeling 
 ###### - Project Syllabus
 
+Using consumer loan data, we design a model to predeict the probability
+of default. We also assign a default predicton and tune it according to
+out-of-sample metrics.
+
+In conjunction with a probability of default (PD) model, we create a
+loss given default (LGD) model and and exposure at default (EAD) model.
+The three are combined to predict the Expected Credit Loss (ECL).
+
 | Section                                    | Sub-section                              |
 | ------------------------------------------ | ---------------------------------------- |
 | 01. Introduction                           | 01A.  Purpose                            |
