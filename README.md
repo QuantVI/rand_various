@@ -12,6 +12,7 @@
 **campania**
 	2. begininings of a predictive model in the credit risk space
 
-**Python_PD_LGD_EAD_Modeling**  
+**Python_PD_LGD_EAD_Modeling**
+
 1. Exercise in credit modeling. To find Expected Loss with an ensmble of PD, LGD, EAD models
 
