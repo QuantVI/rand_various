@@ -51,16 +51,12 @@ forecast_spec = {
 
 
 class RunConfiguration():
-    def __init__(self, scen_list: list = None):
-        if scen_list:
-            self.scen_list = scen_list
+    def __init__(self, spec: dict = None):
+        if spec:
+            self.model_number = spec["model_number"]
+            self.scen_list = spec["scenarios"]
 
-
-    def set_scenarios(self, scen_list: list):
-        if scen_list:
-            self.scen_list = scen_list
-
-
+    # We may want this to happen automatically
     def set_job_ids(self, scen_list: list):
         """# A function to generate and set job_ids
 
@@ -87,3 +83,10 @@ class RunConfiguration():
 
         self.scen_list = s_l
         return s_l
+
+    def __repr__(self):
+        m = self.model_number
+        n = len(self.scen_list)
+        str1 = f"Configuration for Model Number : {m}\n"
+        str2 = "with {n} scenarios."
+        return str1+str2

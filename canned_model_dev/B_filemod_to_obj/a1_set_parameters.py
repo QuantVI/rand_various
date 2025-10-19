@@ -8,6 +8,10 @@ class ModelVariables:
     - which market data to pull
     - what transformations to use on the data
     """
+    m_info = {"name" : "A Multiple Regression Model",
+              "num" : 65535
+              }
+    
     m_vars = {
         'coeff': {
             'equity':1.0,
@@ -33,4 +37,8 @@ class ModelVariables:
     "APAC" : "1337",
     "PACMAN" : "Z1900"}
 
+    def __repr__(self):
+        str1 = f"\tName   : {m_info["name"]}\n"
+        str2 = f"\tNumber : {m_info["num"]}\n"
+        return (str1+str2)
 
