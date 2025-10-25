@@ -69,7 +69,7 @@ class DBCursor:
         cur = a_connection.cursor()
     
         if KPI_ALSO:
-            continue
+            pass
             "change, for example, the data range"
         
         in_i = some_instructions[0]

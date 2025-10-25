@@ -3,6 +3,7 @@
 
 import a1_set_parameters as params
 import a2_run_configuration as config
+from a6_run_model import RiskModel
 
 # NOTE : Everything that was in the "file" in the old version of
 #   run_model, should now be in a run_model object. That way, many of the
@@ -13,7 +14,7 @@ import a2_run_configuration as config
 # When all of these is done, the run_model object wull (still) contain
 #   (more) outputs from previous.all steps. These can be exported as needed.
 class Orchestrator:
-    def __init__(self):
+    def __init__(self, a_model : RiskModel):
         # the Orchestrator should know about the data sources
         # the Model should just use the data
         # the Orchestrator should know about the database(s)
@@ -22,9 +23,11 @@ class Orchestrator:
         # the Model is just given data
         # Everything is supplied to the model.
         # It doesn't go get things. It's only GIVEN them.
+        self.Model = a_model
         self.PRMS = params.ModelVariables()
         self.CONF = config.RunConfigutation(config.forecast_spec)
         
+        PRMS = 1
         var_num = PRMS.m_info["num"]
         conf_num = CONF.model_number
         
@@ -69,5 +72,21 @@ class Orchestrator:
 
 
 if __name__ == "__main__":
-    model_process = Orchestrator()
+    # init param object
+    _params = params.ModelVariables()
+    print(_params)
     
+    # init config object
+    _config = config.RunConfigutation(config.forecast_spec)
+    print(_config)
+    
+    # create Model Object with params and config
+    a_risk_model = RiskModel(_params, _config)
+    
+    # create Orchestrator object to process a model
+    model_process = Orchestrator(a_risk_model)
+    
+    # Tell Orchestrator to start, run, stop the model
+    model_process.model_start(model_to_use)
+    model_process.model_run()
+    model_process.model_stop()

@@ -51,7 +51,7 @@ forecast_spec = {
 
 
 class RunConfiguration():
-    def __init__(self, spec: dict = None):
+    def __init__(self, spec: dict = forecast_spec):
         if spec:
             self.model_number = spec["model_number"]
             self.scen_list = spec["scenarios"]

@@ -1,25 +1,41 @@
 # -*- coding: utf-8 -*-
 
-#### - OLD VERSION IMPORTS. Reconsider and remove or revamp.
-import a04_connect_data as connector
+#### - OLD VERSION IMPORTS. Reconsider/remove or revamp.
+import a4_connect_data as connector
 
-import a05_v2_get_data_to_model as get_data
-from a05_v2_get_data_to_model import extract_portfolio as extract_portfolio
-from a05_v2_get_data_to_model import extract_market as extract_market
+import a5_get_data_to_model as get_data
+#from a5_get_data_to_model import extract_portfolio as extract_portfolio
+#from a5_get_data_to_model import extract_market as extract_market
 
-import a07_v1_queries as queries
-import a08_v1_time_series_manip as tim_ser_mod
+import a7_queries as queries
+import a8_time_series_manip as tim_ser_mod
 
-import p01_FAUX_market_projection_generator as project_market
+#import p01_FAUX_market_projection_generator as project_market
 
 #### ----
 
 class RiskModel:
-    def __init__(self):
-        pass
+    def __init__(self, 
+                 params, 
+                 config):
         
+        self.params = params
+        self.config = config
+        
+        print(self)
+    
+    def __str__(self):
+        str1 = ("---- A Risk Model with :\n")
+        str2 = (f"{self.params}\n")
+        str3 = (f"{self.config}\n")
+        str4 = ("---- ---- ---- ----\n")
+        
+        return str1+str2+str3+str4
+
+
+
     # currency conversion
-    def curr_conv(proj_dict, flat_mrkt=mrkt_flatten):
+    def curr_conv(proj_dict, flat_mrkt):
         for scen in proj_dict:
             if scen["currency"] != BASE_PORTF_CURR:
                 scen["lvls"] *= flat_mrkt[scen["currency"]]
@@ -71,7 +87,7 @@ class RiskModel:
         try:
             pass
         except Exception as e:
-            print(f"Couldn't save {}, due to : {e}")
+            print(f"Couldn't save {fname}, due to : {e}")
             return 0
 
         return 1
@@ -198,7 +214,7 @@ class RiskModel:
         kpis = kpi_vs(scen_pfs, old_pfs)
         # returns 1 dataframe er scenario with rows for each kpi tested
 
-        complex_save(kpis, to=a_location fname="keyperformance.csv")
+        complex_save(kpis, to=a_location, fname="keyperformance.csv")
         # should be multipage xlsx since we can have more than one scenario
 
         return kpis
