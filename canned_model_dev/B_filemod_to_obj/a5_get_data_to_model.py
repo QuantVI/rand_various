@@ -13,8 +13,8 @@ class DBCursor:
     """
     def __init__(self):
         pass
-    
-    
+
+
     def extract_portfolio(self, some_dates, typ="Portfolio"):
         blurbs = {'a':'Connecting to {} database.\n',
                   'b':'Connected to {} database.\n',
@@ -33,8 +33,8 @@ class DBCursor:
         return results
 
 
-    def extract_market(self, mvars, some_dates, typ="Market", 
-                       months_prior=12):
+    def extract_market(self, mvars, some_dates, 
+                       typ="Market", months_prior=12):
         live_conn = connector.conn_to_db(typ)
         # for a_var in mvars["market"]:
         #    ticker = mvars[avar]
