@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 14 16:41:27 2025
-"""
-
 #### ---- Connect Data
 #STRS = ["Portfolio","Market"]
 
