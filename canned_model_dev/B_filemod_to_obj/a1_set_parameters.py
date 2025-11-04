@@ -38,7 +38,8 @@ class ModelVariables:
     "PACMAN" : "Z1900"}
 
     def __repr__(self):
-        str1 = f"Name   : {self.m_info['name']}\n"
-        str2 = f"Number : {self.m_info['num']}\n"
-        return (str1+str2)
+        str_top = "|- Model Variables -|\n"
+        str1 = f" Model Name   : {self.m_info['name']}\n"
+        str2 = f" Model Number : {self.m_info['num']}\n"
+        return (str_top + str1 + str2)
 

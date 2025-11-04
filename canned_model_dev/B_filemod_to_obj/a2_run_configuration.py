@@ -87,6 +87,6 @@ class RunConfiguration():
     def __repr__(self):
         m = self.model_number
         n = len(self.scen_list)
-        str1 = f"Configuration for Model Number : {m}\n"
-        str2 = "with {n} scenarios."
-        return str1+str2
+        str1 = f"|- Configuration -|\n"
+        str2 = f" Model Number : {m} \twith {n} scenarios."
+        return (str1 + str2)

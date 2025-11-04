@@ -18,20 +18,19 @@ class RiskModel:
     def __init__(self, 
                  params, 
                  config):
-        
+        # params is a ModelVariables object
         self.params = params
+        # config is a RunConfiguration object
         self.config = config
-        
-        print(self)
+        # print(self)
+
     
     def __str__(self):
-        str1 = ("---- A Risk Model with :\n")
+        str1 = ("|-- A Risk Model with --|\n")
         str2 = (f"{self.params}\n")
         str3 = (f"{self.config}\n")
-        str4 = ("---- ---- ---- ----\n")
-        
-        return str1+str2+str3+str4
-
+        #str4 = ("---- ---- ---- ----\n")
+        return (str1 + str2 + str3)
 
 
     # currency conversion

@@ -24,24 +24,31 @@ class Orchestrator:
         # Everything is supplied to the model.
         # It doesn't go get things. It's only GIVEN them.
         self.Model = a_model
-        self.PRMS = params.ModelVariables()
-        self.CONF = config.RunConfigutation(config.forecast_spec)
         
-        PRMS = 1
-        var_num = PRMS.m_info["num"]
-        conf_num = CONF.model_number
+        # self.PRMS = params.ModelVariables()
+        self.PRMS = a_model.params
         
+        # self.CONF = config.RunConfigutation(config.forecast_spec)
+        self.CONF = a_model.config
+        
+        var_num = self.PRMS.m_info["num"]
+        conf_num = self.CONF.model_number
+        
+        # We can raise an error for this as well.
         if var_num != conf_num:
-            str1 = f"Warning: Model Variables are for : {var_num}\n"
-            str2 = f"\nRunConfiguration is for : {conf_num}\n"
-            print(str1+str2)
+            str1 = f"Model Variables are for Model  #: {var_num}\n"
+            str2 = f"The Configuration is for Model #: {conf_num}\n"
+            str3 = str1+str2
+            raise ValueError(str3)
         
-        str3 = f"... Read and Processed {PRMS}\n"
-        str4 = f"... Read and Processed {CONF}\n"
-        
-        return str3+str4
+        #str_base = "|--- Orchestrator read and processed ---|\n"
+        #str3 = f"{str_base}{self.PRMS}\n"
+        #str4 = f"{str_base}{self.CONF}\n"
+        #print (str3 + str4)
 
-    
+
+    # For each stage, it could be useful if the function had default
+    # variables that can be overridden from Orchestrator calls.
     def model_start():
         pass
         
@@ -62,22 +69,23 @@ class Orchestrator:
         pass
     
     def __repr__(self):
-        s1 = " ~ Model Orchestration object ~\n"
-        s2 = "\tA process to run model number:"
+        vn = self.PRMS.m_info["num"]
+        s1 = "|--- Model Orchestration object ---|\n"
+        s2 = f" A process to run model number:\t{vn}\n"
         
         s3 = s1+s2
-        return s3
+        return (s3+ str(self.Model))
     
 
 
 if __name__ == "__main__":
     # init param object
     _params = params.ModelVariables()
-    print(_params)
+    #print(_params)
     
     # init config object
-    _config = config.RunConfigutation(config.forecast_spec)
-    print(_config)
+    _config = config.RunConfiguration(config.forecast_spec)
+    #print(_config)
     
     # create Model Object with params and config
     a_risk_model = RiskModel(_params, _config)
@@ -86,6 +94,6 @@ if __name__ == "__main__":
     model_process = Orchestrator(a_risk_model)
     
     # Tell Orchestrator to start, run, stop the model
-    model_process.model_start(model_to_use)
-    model_process.model_run()
-    model_process.model_stop()
+#    model_process.model_start(model_to_use)
+#    model_process.model_run()
+#    model_process.model_stop()
