@@ -44,6 +44,7 @@ class RiskModel:
 
 
     # Apply model formula to market data
+    # For example a LINEAR REGRESSION formula
     def diff_proj(agg_pfs, market_transformed, model_params):
         """
         typ = dif:
@@ -63,7 +64,7 @@ class RiskModel:
     # NOTE: use this or above for absolute projections
     def lvl_proj(agg_pfs, diff_projections, model_params):
         """We can include a key in the model params for how to go from
-        relative changes to level changes. Or we can just house the logic here.
+        relative changes to level changes. Or we can house the logic here.
         """
         dif_proj = diff_projections
         for proj in dif_proj:
