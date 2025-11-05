@@ -141,13 +141,11 @@ class RiskModel:
             # pull into dictionsry indexed by time_zeroes
             kpi_data_sets = ""
 
-
         # It makes sense for this dictionary to be keyed by
         # the time_zero per scenario.
         return {"curr_portfolios" : portf_data_sets,
                 "prev_portfolios" : kpi_data_sets}
 
-        
 
 
     ## RUN / REV / ACCELERATE Engine
@@ -207,6 +205,7 @@ class RiskModel:
                 "pf_riskwa": cp_cur_portf_rwa,
                 "mod_mrkt_proj": mrkt_transf,
                 "flat_mrkt_raw": mrkt_flatten}
+  
 
 
     ## STOP / DECELERATE Engine
