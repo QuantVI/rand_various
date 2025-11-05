@@ -15,9 +15,7 @@ import a8_time_series_manip as tim_ser_mod
 #### ----
 
 class RiskModel:
-    def __init__(self, 
-                 params, 
-                 config):
+    def __init__(self, params, config):
         # params is a ModelVariables object
         self.params = params
         # config is a RunConfiguration object
