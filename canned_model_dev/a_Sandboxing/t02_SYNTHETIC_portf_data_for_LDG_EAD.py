@@ -147,7 +147,7 @@ def generate_lgd_ead_data(n_rows=1000, random_state=2025):
 
     # Create issue date (loan origination)
     issue_dates = pd.date_range(start="2010-01-01",
-                                end="2018-12-31", freq="ME")
+                                end="2018-12-31", freq="M")
     issue_d_arr = np.random.choice(issue_dates, size=n_rows)
 
     # Last payment date must be after issue date
@@ -156,7 +156,7 @@ def generate_lgd_ead_data(n_rows=1000, random_state=2025):
 
     # Credit pull date can be before or after issue
     sdt, edt = "2009-01-01", "2019-12-31"
-    credit_pull_dates = pd.date_range(start=sdt, end=edt, freq="ME")
+    credit_pull_dates = pd.date_range(start=sdt, end=edt, freq="M")
     last_credit_pull_d_arr = np.random.choice(credit_pull_dates, size=n_rows)
 
 
