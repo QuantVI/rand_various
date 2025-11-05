@@ -109,7 +109,7 @@ def generate_lgd_ead_data(n_rows=1000, random_state=2025):
 
     # # # - - - Exposure at Default (EAD) - - - # # #
     # loan_amt is the funded loan amount
-    loan_amnt = np.random.randint(1000, 35000, n_rows)
+    loan_amnt = np.random.randint(1000, 40000, n_rows)
     # funded_amnt is close to loan_amnt
     funded_amnt = loan_amnt + np.random.randint(-500, 500, n_rows)
     # Make sure funded_amnt is nonnegative
