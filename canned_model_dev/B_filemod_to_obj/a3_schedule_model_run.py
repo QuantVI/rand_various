@@ -49,7 +49,9 @@ class Orchestrator:
 
     # For each stage, it could be useful if the function had default
     # variables that can be overridden from Orchestrator calls.
-    def model_start():
+    def model_start(ckeck_kpi=True):
+        # We can override KPI checking from here. The flag is here
+        # since the KPI depends on historical data from the database
         pass
         
     

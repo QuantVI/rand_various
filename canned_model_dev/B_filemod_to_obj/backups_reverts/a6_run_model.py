@@ -93,15 +93,28 @@ class RiskModel:
 
     ## START
     def start_model(params, config, outdir, check_kpi, logging):
-        ## START Engine        
+        ## START Engine
+        #globals()["LOGGING"] = logging
+        #globals()["CHECK_KPI"] = check_kpi
+        
         scenarios = config.forecast_spec["scenarios"]
+        # i. formulate: bring in regression PARAMETERS
         model_params = params.m_vars
+        
+        # b. connect to the database
+        # c. pull the PORTF data according to config DATE
+        #    If KPI flag, pull extra PORTF data
         if not check_kpi:
             raw_pf_data_sets = {s["time_zero"] : extract_portfolio(s["time_zero"])
                                 for s in scenarios}
             raw_pfs_for_kpi = ""
         else:
+            # pull portf raw data for all time_zero-N months
+            # store this in a dict by time zero (i.e. 1 per unique time-zero)
+            # changes between months used in kpi
             raw_pfs_for_kpi = ""
+
+        # f. pull market data from DATE back X months
         raw_markt_data_sets = {s["time_zero"] : extract_market(s["time_zero"])
                                for s in scenarios}
 
