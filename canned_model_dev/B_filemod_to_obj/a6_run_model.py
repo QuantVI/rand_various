@@ -121,25 +121,25 @@ class RiskModel:
         so it doesn't need th take-in the output_directory.
 
         For KPI checks we assume comparison of current and previous portfolio.
-        A possibly external KPI file/function shoudl define how far back
+        A possibly external KPI file/function should define how far back
         to pull for the comparison.
         """
 
         # functions from a5_get_data
-        pull_portfo = extract_portfolios
+        pull_portfo = extract_portfolio
         pull_market = extract_market
 
-        if not check_kpi:
-            # unmodified portfolio data
-            portf_data_sets = {s["time_zero"] :
-                                   pull_portfo(s["time_zero"])
-                                   for s in scenarios}
-        else:
-            # datasets from k months ago as comparison
-            # shift dates backward
-            # pair shofted dates with time_zeroes
-            # pull into dictionsry indexed by time_zeroes
-            kpi_data_sets = ""
+        # unmodified portfolio data
+        portf_data_sets = {s["time_zero"] : pull_portfo(s["time_zero"])
+                           for s in scenarios}
+
+        markt_data_sets = {s["time_zero"] : pull_market(s["time_zero"])
+                               for s in scenarios}
+        # datasets from k months ago as comparison
+        # shift dates backward
+        # pair shifted dates with time_zeroes
+        # pull into dictionary indexed by time_zeroes
+        if check_kpi: kpi_data_sets = ""
 
         # It makes sense for this dictionary to be keyed by
         # the time_zero per scenario.
