@@ -1,16 +1,11 @@
 # -*- coding: utf-8 -*-
 
 #### - OLD VERSION IMPORTS. Reconsider/remove or revamp.
-import a4_connect_data as connector
-
+#import a4_connect_data as connector
 import a5_get_data_to_model as get_data
-#from a5_get_data_to_model import extract_portfolio as extract_portfolio
-#from a5_get_data_to_model import extract_market as extract_market
-
 import a7_queries as queries
 import a8_time_series_manip as tim_ser_mod
-
-#import p01_FAUX_market_projection_generator as project_market
+import p1_generate_market_projections as project_market
 
 #### ----
 
@@ -42,7 +37,7 @@ class RiskModel:
 
     # Apply model formula to market data
     # For example a LINEAR REGRESSION formula
-    def diff_proj(agg_pfs, market_transformed, model_params):
+    def regression_model_projection(agg_pfs, market_transformed, model_params):
         """
         typ = dif:
             Create relative changes in portfolio, 
@@ -97,21 +92,15 @@ class RiskModel:
         scenarios = config.forecast_spec["scenarios"]
         model_params = params.m_vars
         if not check_kpi:
-            raw_pf_data_sets = {s["time_zero"] : extract_portfolio(s["time_zero"])
-                                for s in scenarios}
+            raw_pf_data_sets = {s["time_zero"] : extract_portfolio(s["time_zero"]) for s in scenarios}
             raw_pfs_for_kpi = ""
         else:
             raw_pfs_for_kpi = ""
-        raw_markt_data_sets = {s["time_zero"] : extract_market(s["time_zero"])
-                               for s in scenarios}
+            raw_markt_data_sets = {s["time_zero"] : extract_market(s["time_zero"]) for s in scenarios}
+        return {"raw_pf_ds": raw_pf_data_sets, "raw_mk_ds": raw_markt_data_sets, "raw_kpi_pfs" : raw_pfs_for_kpi, "params": params, "config":config, "outidr":outdir}
 
-        return {"raw_pf_ds": raw_pf_data_sets,
-                "raw_mk_ds": raw_markt_data_sets,
-                "raw_kpi_pfs" : raw_pfs_for_kpi,
-                "params": params,
-                "config":config,
-                "outidr":outdir}
 
+    ## START (redo)
     def start_model(check_kpi=False):
         """
         idea 1: Orchestrator object will call start_model and can
@@ -125,9 +114,11 @@ class RiskModel:
         to pull for the comparison.
         """
 
-        # functions from a5_get_data
-        pull_portfo = extract_portfolio
-        pull_market = extract_market
+        dbObj = get_data.DBCursor()
+
+        # shortending func names from a5_get_data
+        pull_portfo = dbObj.extract_portfolio
+        pull_market = dbObj.extract_market
 
         # unmodified portfolio data
         portf_data_sets = {s["time_zero"] : pull_portfo(s["time_zero"])
@@ -143,23 +134,58 @@ class RiskModel:
 
         # It makes sense for this dictionary to be keyed by
         # the time_zero per scenario.
-        return {"curr_portfolios" : portf_data_sets,
-                "prev_portfolios" : kpi_data_sets}
-
+        
+        #return {"curr_portfolios" : portf_data_sets,
+        #        "prev_portfolios" : kpi_data_sets,
+        #        "market_datasets" : markt_data_sets}
+        
+        # We store the results of the data pulls in the model object
+        
+        self.curr_portfolios = portf_data_sets
+        self.prev_portfolios = kpi_data_sets
+        self.market_datasets = markt_data_sets
+        # dbObj, a DBCursor from get_data, has functions to use later on
+        self.Data_Obj = dbObj
 
 
     ## RUN / REV / ACCELERATE Engine
-    def run_model(starting_output_kvm):
+    def run_model(start_model_out):
         pass
-        raw_pf_data_sets = starting_output_kvm["raw_pf_ds"]
-        raw_markt_data_sets = starting_output_kvm["raw_mk_ds"]
-        params = starting_output_kvm["params"]
+        curr_portfo = self.curr_portfolios
+        market_data = self.market_datasets
+        prev_portfo = self.prev_portfolios
 
         # d. pivot the data and group by entity
-        labeled_pf_data_sets = get_data.label_with_subsidiaries(raw_pf_data_sets)
-        piv1 = get_data.transform_raw_to_pivot_type_1(labeled_pf_data_sets)
-        agg_pf_data_sets = get_data.transform_pivot_type_1_to_entity_level(piv1)
+        #labeled_pf_data_sets = get_data.label_with_subsidiaries(raw_pf_data_sets)
+        #piv1 = get_data.transform_raw_to_pivot_type_1(labeled_pf_data_sets)
+        #agg_pf_data_sets = get_data.transform_pivot_type_1_to_entity_level(piv1)
+        
+        # using Data_Obj
+        def LPA(pf_dict):
+            """To Label, Pivot, and Aggregate a portfolio with information
+            about our subsidiaries."""
+            
+            labelled = Data_Obj.label_with_subsidiaries(pf_dict)
+            pivoted = Data_Obj.transform_raw_to_pivot_type_1(labelled)
+            aggreg = Data_Obj.transform_pivot_type_1_to_entity_level(pivoted)
+            
+            return aggred
+        
+        # groupby of row-level portfolio data
+        cur_pf_agg = LPA(curr_portfo)
+        if prev_portfo:
+            prv_of_agg = LPA(prev_portfo)
+        else:
+            prv_of_agg = ""
 
+        
+        
+        
+        # The "Model" that projects market data forward is not ours.
+        # We merely call it with the right market data and get a forecast.
+        market_forecasts = project_market(market_data, months_forward=12)
+        
+        
         # g(-2). project raw MARKET data forward
         mrkt_project = project_market(raw_markt_data_sets, months_forward=12)
 
@@ -175,7 +201,7 @@ class RiskModel:
         # j. formulate: Param*MkData + Param*MkData = Predict0
         # k. formulate: Predict1 = Real0 * blah of Predict0
         # l. you've created relative prediction series
-        portf_diffs = diff_proj(agg_pf_data_sets, mrkt_transf, params)
+        portf_diffs = regression_model_projection(agg_pf_data_sets, mrkt_transf, params)
 
         # m. pass to func to make absolute prediction series
         # n. created absolute prediction series
