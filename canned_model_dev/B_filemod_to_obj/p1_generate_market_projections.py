@@ -4,6 +4,7 @@
 # and create a number of future values for it.
 
 def project_market(historical_market_data_sets, months_forward):
+    # return value needs to contain the history plus the forecast
     fw_months = months_forward
     hmds = historical_market_data_sets
     fmds = {}

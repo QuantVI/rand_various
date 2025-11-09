@@ -37,7 +37,7 @@ class RiskModel:
 
     # Apply model formula to market data
     # For example a LINEAR REGRESSION formula
-    def regression_model_projection(agg_pfs, market_transformed, model_params):
+    def model_projection(agg_pfs, market_transformed, model_params):
         """
         typ = dif:
             Create relative changes in portfolio, 
@@ -121,11 +121,32 @@ class RiskModel:
         pull_market = dbObj.extract_market
 
         # unmodified portfolio data
-        portf_data_sets = {s["time_zero"] : pull_portfo(s["time_zero"])
+        # This should be keyd by job_id since time_zero can is not unique.
+        # Thus it doesn't work for a dictionary key.
+        memo_pf = {}
+        memo_mk = {}
+        
+        scenarios = self.config["scenarios"]
+        
+        for s in scenarios:
+            # check for portfolio data in the memoization table
+            # if not pf data for that date, then pull it.
+            # Since time_zero can repeat, we don't want to pull the same data
+            # over.
+            if not (s["time_zero"] in memo_pf.keys()):
+                memo_pf["time_zero"] = pull_portfo(s["time_zero"])
+            
+            if not (s["time_zero"] in memo_mk.keys()):
+                memo_mk["time_zero"] = pull_market(s["time_zero"])
+
+        portf_data_sets = {s["job_id"] : memo_pf(s["time_zero"]) 
                            for s in scenarios}
 
-        markt_data_sets = {s["time_zero"] : pull_market(s["time_zero"])
-                               for s in scenarios}
+        
+
+        markt_data_sets = {s["job_id"] : memo_mk(s["time_zero"]) 
+                           for s in scenarios}
+        
         # datasets from k months ago as comparison
         # shift dates backward
         # pair shifted dates with time_zeroes
@@ -154,6 +175,7 @@ class RiskModel:
         curr_portfo = self.curr_portfolios
         market_data = self.market_datasets
         prev_portfo = self.prev_portfolios
+        
 
         # d. pivot the data and group by entity
         #labeled_pf_data_sets = get_data.label_with_subsidiaries(raw_pf_data_sets)
@@ -173,27 +195,29 @@ class RiskModel:
         
         # groupby of row-level portfolio data
         cur_pf_agg = LPA(curr_portfo)
-        if prev_portfo:
-            prv_of_agg = LPA(prev_portfo)
-        else:
-            prv_of_agg = ""
-
         
+        if prev_portfo:
+            prv_pf_agg = LPA(prev_portfo)
+        else:
+            prv_pf_agg = ""
+
         
         
         # The "Model" that projects market data forward is not ours.
         # We merely call it with the right market data and get a forecast.
-        market_forecasts = project_market(market_data, months_forward=12)
-        
         
         # g(-2). project raw MARKET data forward
-        mrkt_project = project_market(raw_markt_data_sets, months_forward=12)
+        #mrkt_project = project_market(raw_markt_data_sets, months_forward=12)
+        market_forecasts = project_market(market_data, months_forward=12)
 
         # g(-1). combined projects and raw MARKET data
-        mrkt_past_ftr = time_ser_mod.combine(raw_markt_data_sets, mrkt_project)
+        #mrkt_past_ftr = time_ser_mod.combine(raw_markt_data_sets, mrkt_project)
 
         # g. transform MARKET data it (also informs how many old months needed)
-        mrkt_transf = tim_ser_mod.process(params, mrkt_past_ftr)
+        #mrkt_transf = tim_ser_mod.process(params, mrkt_past_ftr)
+        market_variants = tim_ser_mod.process(self.params, market_forecasts)
+        
+
 
         # h. pass transformed market data to formula
 
@@ -201,7 +225,102 @@ class RiskModel:
         # j. formulate: Param*MkData + Param*MkData = Predict0
         # k. formulate: Predict1 = Real0 * blah of Predict0
         # l. you've created relative prediction series
-        portf_diffs = regression_model_projection(agg_pf_data_sets, mrkt_transf, params)
+        portf_diffs = model_projection(agg_pf_data_sets, mrkt_transf, params)
+        
+        def relative_change(mrkt_vrnts):
+            """
+            Parameters
+            ----------
+            mrkt_vrnts : DICT
+                keyed by time_zero date. Each value is the original history
+                forecasted forward n-months, or that same series lagged,
+                difference, or natual logarithm'd
+
+            Returns
+            -------
+            The projected relative changes (e.g. month-over-month) of the
+            portfolio value. This is done by applying the model equation
+            to the (transformed i.e. variants of the) market data.
+
+            """
+            #curr_portfo = self.curr_portfolios
+            #market_data = self.market_datasets
+            #prev_portfo = self.prev_portfolios
+            #cur_pf_agg = LPA(curr_portfo)
+            #market_forecasts = project_market(market_data, months_forward=12)
+            #market_variants = tim_ser_mod.process(self.params, market_forecasts)
+                # params is a ModelVariables object
+            #self.params = params
+                # config is a RunConfiguration object
+            #self.config = config
+
+            coe, stn, nam = self.params.m_vars # keys in this dict
+            mdl_kvm = self.params.m_vars # the full dict
+            
+            coeffs = mdl_kvm[coe] # {'equity':1.0,'fxd_inc':0.5, ...}
+            stnrty = mdl_kvm[stn] # {'equity':['dif_1','lag_2','ln'], ...}
+            mrktnm = mdl_kvm[nam] # {'equity': 'SPX','fxd_inc':'VNGD', ...}
+            
+            task_pieces = {}
+            # task should be a job_id, the key of market_variants
+            for task in market_variants:
+                pieces = []
+                # In each value, we have one time-series per market variable.
+                market_variants[task] = curr
+                for nm in curr:
+                    # each market variable has a time_zero related time-series
+                    one_ser_kvm = curr[nm]
+                    time_zero = list(one_ser_kvm.keys())[0]
+                    one_series = one_ser_kvm[time_zero]
+                    # We assume all series have x-months of history, and
+                    # (currently y= ) 12-months of projections,
+                    # with time_zero being between those. Therefore,
+                    # the xth index is the value of the series at time_zero
+                    
+                    # We explect one number, but use a dict for clarity
+                    # this pulls a coefficient depending on if the
+                    # param set it as equity, fixed-income, or crypto
+                    mult = {nm:coeffs[k] for k in coeffs if mrktnm[k]==nm}
+                    mult = mult[nm]
+                    
+                    # Multiply Coefficient to time_series
+                    # Only works if one_series is DataFrame or Series object
+                    # If it's a list, * duplicates the list. Insteas use
+                    # list( map( lambda x : x*mult, one_series))
+                    one_series_mult = one_series * mult
+                    
+                    # Add this to pieces. Pieces are summed later
+                    pieces.append(one_series_mult)
+                
+                # Add these to the task_piece dictionary by job_id
+                task_pieces[task] = pieces
+                    
+
+            NOTE01="""Assumed structure of market_variants:
+                
+                {1234:{"SPX":{"2025-01":dataframe or dict of data and value},
+                       "VNGD":{"2025-01":dataframe or dict of data and value},
+                       "ETH":{"2025-01":dataframe or dict of data and value}
+                       },
+                 
+                 2468:{"SPX":{"2025-01":dataframe or dict of data and value},
+                        "VNGD":{"2025-01":dataframe or dict of data and value},
+                        "ETH":{"2025-01":dataframe or dict of data and value}
+                        },
+                 
+                 36912:{"SPX":{"2025-04":dataframe or dict of data and value},
+                        "VNGD":{"2025-04":dataframe or dict of data and value},
+                        "ETH":{"2025-04":dataframe or dict of data and value}
+                        },
+                 
+                 481216:{"SPX":{"2025-04":dataframe / dict of data & value},
+                        "VNGD":{"2025-04":dataframe or dict of data & value},
+                        "ETH":{"2025-04":dataframe or dict of data and value}
+                        }
+                 }
+                """
+
+
 
         # m. pass to func to make absolute prediction series
         # n. created absolute prediction series

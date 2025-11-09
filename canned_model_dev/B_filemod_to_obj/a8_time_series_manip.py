@@ -22,6 +22,8 @@ def process(parameter_set, market_data):
     #   lagging
     #   logarithm
     # return finalized modified time series
+    variants = 1 # contians historical, forecasted, and transformed
+    return variants
 
 def combine(historical_market_data_kvm, projected_market_data_kvm):
     hist = historical_market_data_kvm
