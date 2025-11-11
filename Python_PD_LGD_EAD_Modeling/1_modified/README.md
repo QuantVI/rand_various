@@ -1,5 +1,5 @@
 # Credit Risk Modeling 
-###### - Project Syllabus
+###### - <p style="color:blue;">Project Syllabus</p>
 
 Using consumer loan data, we design a model to predeict the probability
 of default. We also assign a default predicton and tune it according to
