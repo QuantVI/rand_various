@@ -1,8 +1,8 @@
 # Credit Risk Modeling 
-###### - <p style="color:blue;">Project Syllabus</p>
+###### - Project Syllabus
 
-Using consumer loan data, we design a model to predeict the probability
-of default. We also assign a default predicton and tune it according to
+Using consumer loan data, we design a model to predict the probability
+of default. We also assign a default prediction and tune it according to
 out-of-sample metrics.
 
 In conjunction with a probability of default (PD) model, we create a
@@ -33,13 +33,13 @@ The three are combined to predict the Expected Credit Loss (ECL).
 |                                            | 05D.  Exclusions                         |
 | 06. **PD Model**: Estimation               | 06A.  Algorithm Selection                |
 |                                            | 06B.  Model Training                     |
-|                                            | 06C.  Hyperparameter Tuning              |
+|                                            | 06C.  Hyper-parameter Tuning              |
 |                                            | 06D.  Coefficient Interpretation         |
 |                                            | 06E.  Cross-validation                   |
 |                                            | 06F.  Performance Metrics                |
 |                                            | 06G.  Back-testing                       |
 |                                            | 06H.  Benchmarking                       |
-| 07. **PD Model**: Applicaton               | 07A.  Score Thresholds                   |
+| 07. **PD Model**: Application               | 07A.  Score Thresholds                   |
 |                                            | 07B.  Risk-based Pricing                 |
 |                                            | 07C.  Portfolio Risk                     |
 |                                            | 07D. Stakeholder Reporting               |
@@ -49,7 +49,7 @@ The three are combined to predict the Expected Credit Loss (ECL).
 |                                            | 08D.  Monitoring Dashboard               |
 | 09. **LGD & EAD Models**: Data Preparation | 09A.  LGD Target                         |
 |                                            | 09B.  EAD Target                         |
-|                                            | 09C.  Data Segementation                 |
+|                                            | 09C.  Data Segmentation                 |
 |                                            | 09D.  Confidential Data                  |
 | 10. **LGD Model**: Estimation              | 10A.  Model Selection                    |
 |                                            | 10B.  Feature Importance                 |
