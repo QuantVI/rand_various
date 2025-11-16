@@ -16,3 +16,9 @@ Other inspiration and code for this model and the analysis involved is taken fro
 	- Calculates a Gini coefficient
 		- See https://www.youtube.com/watch?v=MiBUBVUC8kE for background
 
+- https://www.kaggle.com/code/mauricioosandoval/loan-default-prediction-codsecuencial-cpd
+	- sci-kit-learn utilization with various model forms
+	
+- https://www.kaggle.com/code/beatafaron/credit-risk-eda-woe-scorecard-2
+	- scorecard method
+
