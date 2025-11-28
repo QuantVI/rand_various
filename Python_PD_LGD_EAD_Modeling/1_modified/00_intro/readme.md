@@ -2,8 +2,11 @@
 
 See **PDF** `Classification Metrics` for information on the types of measurements used for models such as those for PD, LGD, EAD.
 
-Other inspiration and code for this model and the analysis involved is taken from:
-- https://github.com/Chandra731/loan_analysis_project
+Other inspiration and code for this model and the analysis:
+
+These are links to other browsed reports and repositories. Some of these resources were wholly unused, or used to refer to report structure etc. The major source for the background is in this repo, in the `original` folder.
+
+ - https://github.com/Chandra731/loan_analysis_project
 	Great plots for a different loan data set:
 	- this: 8578 rows, 14 columns
 	- ours: ? rows, 75 columns
@@ -22,3 +25,5 @@ Other inspiration and code for this model and the analysis involved is taken fro
 - https://www.kaggle.com/code/beatafaron/credit-risk-eda-woe-scorecard-2
 	- scorecard method
 
+- https://github.com/harishpuvvada/LoanDefault-Prediction/tree/master
+	- also evaluates multiple models (e.g. MLP, SVM)
